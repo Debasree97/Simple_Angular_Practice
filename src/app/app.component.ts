@@ -18,12 +18,6 @@ export class AppComponent {
 
   onSubmit() {
     console.log(this.currencyForm.value);
-  }
-
-  radioActive(event: any) {
-    this.activeStatus = event.target.value;
-    if (event.target.value) {
-      this.activeStatus = 'Active';
-    }
+    this.currencyForm.reset();
   }
 }

@@ -82,18 +82,33 @@
     placeholder="Currency Code"
     formControlName="currencyCode"
   />
-  <div class="form-check d-flex align-items-center radio-btn mt-3">
+  <!-- radio buttons -->
+  <div class="d-flex">
+    <div class="form-check d-flex align-items-center radio-btn mt-3 mx-1">
+    
     <input
-      class="form-check-input"
+      class="form-check-input me-1"
       type="radio"
       id="flexRadioDefault1"
-      (change)="radioActive($event)"
-      value={{activeStatus}}
+      value="Active"
       formControlName="activeStat"
-    />
-    <label #flexRadioDefault1 class="form-check-label" for="flexRadioDefault1">
-      {{activeStatus}}
-    </label> 
+    /> 
+    <label class="form-check-label" for="flexRadioDefault1">
+      Active
+    </label>
+  </div>
+  <div class="form-check d-flex align-items-center radio-btn mt-3 mx-1">
+    <input
+      class="form-check-input me-1"
+      type="radio"
+      id="flexRadioDefault2"
+      value="Inactive"
+      formControlName="activeStat"
+    /> 
+    <label #flexRadioDefault1 class="form-check-label" for="flexRadioDefault2">
+      Inactive
+    </label>
+  </div>
   </div>
   <button type="submit" class="btn btn-primary mx-1 mx-lg-3 mt-4 mt-md-3">
     Submit
