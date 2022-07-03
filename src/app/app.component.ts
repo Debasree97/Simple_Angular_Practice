@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl,FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -7,17 +7,27 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  currencyForm = new FormGroup({
-    countryName: new FormControl(''),
-    currencyName: new FormControl(''),
-    currencyCode: new FormControl(''),
-    activeStat: new FormControl(''),
+  constructor(private FB: FormBuilder) {}
+  currencyForm = this.FB.group({
+    countryName: [''],
+    currencyName: [''],
+    currencyCode: [''],
+    activeStat: [''],
   });
 
   activeStatus: string = 'Inactive';
+  coName: string = "";
+  cuName: string = "";
+  cuCode: string = "";
+  status: string = "";
 
   onSubmit() {
-    console.log(this.currencyForm.value);
+    // console.log(this.currencyForm.value);
+    // console.log(this.currencyForm.value.countryName);
+    this.coName = this.currencyForm.value.countryName;
+    this.cuName = this.currencyForm.value.currencyName;
+    this.cuCode = this.currencyForm.value.currencyCode;
+    this.status = this.currencyForm.value.activeStat;
     this.currencyForm.reset();
   }
 }
