@@ -59,11 +59,7 @@
 </div>
 
 <!-- Input Box -->
-<form
-  class="d-md-flex mx-3 my-5"
-  [formGroup]="currencyForm"
-  (ngSubmit)="onSubmit()"
->
+<form class="d-md-flex mx-3 my-5" [formGroup]="currencyForm">
   <input
     type="text"
     class="form-control mx-1 mt-3"
@@ -85,32 +81,37 @@
   <!-- radio buttons -->
   <div class="d-flex">
     <div class="form-check d-flex align-items-center radio-btn mt-3 mx-1">
-    
-    <input
-      class="form-check-input me-1"
-      type="radio"
-      id="flexRadioDefault1"
-      value="Active"
-      formControlName="activeStat"
-    /> 
-    <label class="form-check-label" for="flexRadioDefault1">
-      Active
-    </label>
+      <input
+        class="form-check-input me-1"
+        type="radio"
+        id="flexRadioDefault1"
+        value="Active"
+        formControlName="activeFlag"
+      />
+      <label class="form-check-label" for="flexRadioDefault1"> Active </label>
+    </div>
+    <div class="form-check d-flex align-items-center radio-btn mt-3 mx-1">
+      <input
+        class="form-check-input me-1"
+        type="radio"
+        id="flexRadioDefault2"
+        value="Inactive"
+        formControlName="activeFlag"
+      />
+      <label
+        #flexRadioDefault1
+        class="form-check-label"
+        for="flexRadioDefault2"
+      >
+        Inactive
+      </label>
+    </div>
   </div>
-  <div class="form-check d-flex align-items-center radio-btn mt-3 mx-1">
-    <input
-      class="form-check-input me-1"
-      type="radio"
-      id="flexRadioDefault2"
-      value="Inactive"
-      formControlName="activeStat"
-    /> 
-    <label #flexRadioDefault1 class="form-check-label" for="flexRadioDefault2">
-      Inactive
-    </label>
-  </div>
-  </div>
-  <button type="submit" class="btn btn-primary mx-1 mx-lg-3 mt-4 mt-md-3">
+  <button
+    type="submit"
+    (click)="addCurrency()"
+    class="btn btn-primary mx-1 mx-lg-3 mt-4 mt-md-3"
+  >
     Submit
   </button>
 </form>
@@ -120,6 +121,7 @@
   <table class="table table-striped">
     <thead>
       <tr>
+        <th scope="col" class="text-center">Index</th>
         <th scope="col" class="text-center">Country Name</th>
         <th scope="col" class="text-center">Currency Name</th>
         <th scope="col" class="text-center">Currency Code</th>
@@ -127,11 +129,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td scope="row" class="text-center">{{coName}}</td>
-        <td class="text-center">{{cuName}}</td>
-        <td class="text-center">{{cuCode}}</td>
-        <td class="text-center">{{status}}</td>
+      <tr *ngFor="let row of currencyData">
+        <td scope="row" class="text-center">{{ row.id }}</td>
+        <td class="text-center">{{ row.countryName }}</td>
+        <td class="text-center">{{ row.currencyName }}</td>
+        <td class="text-center">{{ row.currencyCode }}</td>
+        <td class="text-center">{{ row.activeFlag }}</td>
       </tr>
     </tbody>
   </table>

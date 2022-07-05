@@ -1,0 +1,11 @@
+{
+  "posts": [
+    {
+      "countryName": "bangladesh",
+      "currencyName": "taka",
+      "currencyCode": "tk",
+      "activeFlag": "Active",
+      "id": 1
+    }
+  ]
+}
