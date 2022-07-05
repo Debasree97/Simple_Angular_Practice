@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
       activeFlag: [''],
     });
 
-    this.currencyData();
+    this.getCurrencyInfo();
   }
 
   addCurrency() {
